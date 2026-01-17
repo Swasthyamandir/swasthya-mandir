@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Swasthya Mandir</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial;background:#f4fff4}
+header{background:#1b7d3c;color:#fff;padding:15px;text-align:center}
+nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
+
+.slider{position:relative;max-width:100%;overflow:hidden}
+.slide{display:none}
+.slide img{width:100%;height:320px;object-fit:cover}
+
+.prev,.next{
+position:absolute;top:50%;transform:translateY(-50%);
+background:#1b7d3c;color:#fff;padding:10px;cursor:pointer
+}
+.next{right:0}
+
+.dots{text-align:center;background:#eaffea}
+.dot{
+display:inline-block;height:10px;width:10px;
+background:#bbb;border-radius:50%;margin:5px;cursor:pointer
+}
+.active{background:#1b7d3c}
+
+section{padding:20px}
+h2{color:#1b7d3c}
+
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;
+padding:12px 18px;border-radius:50px;
+text-decoration:none;font-weight:bold
+}
+
+footer{
+background:#1b7d3c;color:#fff;
+text-align:center;padding:10px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🌿 Swasthya Mandir 🌿</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+<div class="slide"><img src="https://source.unsplash.com/1600x400/?health"></div>
+<div class="slide"><img src="https://source.unsplash.com/1600x400/?nutrition"></div>
+<div class="slide"><img src="https://source.unsplash.com/1600x400/?wellness"></div>
+
+<a class="prev" onclick="move(-1)">❮</a>
+<a class="next" onclick="move(1)">❯</a>
+</div>
+
+<div class="dots">
+<span class="dot" onclick="setSlide(1)"></span>
+<span class="dot" onclick="setSlide(2)"></span>
+<span class="dot" onclick="setSlide(3)"></span>
+</div>
+
+<section id="home">
+<h2>স্বাস্থ্যই সম্পদ</h2>
+<p>
+Swasthya Mandir একটি স্বাস্থ্য ও পুষ্টি ভিত্তিক উদ্যোগ।
+আমাদের লক্ষ্য — সুস্থ জীবন, সক্রিয় শরীর ও সুন্দর ভবিষ্যৎ।
+</p>
+</section>
+
+<section id="about">
+<h2>আমাদের সম্পর্কে</h2>
+<p>
+আমরা Nutrition, Wellness ও Lifestyle Coaching এর মাধ্যমে
+মানুষকে সুস্থ ও স্বনির্ভর হতে সাহায্য করি।
+</p>
+</section>
+
+<section id="contact">
+<h2>যোগাযোগ</h2>
+<p>📞 Phone: 9XXXXXXXXX</p>
+<p>📍 Location: Medinipur, West Bengal</p>
+
+<iframe
+src="https://www.google.com/maps?q=Medinipur,West Bengal&output=embed"
+width="100%" height="250" style="border:0;" allowfullscreen>
+</iframe>
+</section>
+
+<a class="whatsapp"
+href="https://wa.me/91XXXXXXXXXX" target="_blank">
+💬 WhatsApp
+</a>
+
+<footer>
+© 2026 Swasthya Mandir
+</footer>
+
+<script>
+let index=1;show(index);
+function move(n){show(index+=n)}
+function setSlide(n){show(index=n)}
+function show(n){
+let i;let slides=document.getElementsByClassName("slide");
+let dots=document.getElementsByClassName("dot");
+if(n>slides.length){index=1}
+if(n<1){index=slides.length}
+for(i=0;i<slides.length;i++){slides[i].style.display="none"}
+for(i=0;i<dots.length;i++){dots[i].className=dots[i].className.replace(" active","")}
+slides[index-1].style.display="block";
+dots[index-1].className+=" active";
+}
+</script>
+
+</body>
+</html>
